@@ -3,4 +3,4 @@ project(YandexCodeRun)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(YandexCodeRun 344/344.cpp)
+add_executable(YandexCodeRun 251/251.cpp)
