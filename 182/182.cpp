@@ -26,21 +26,14 @@ int main() {
             continue;
         }
         divisors1.push_back(v);
-//        if (divisors.count(v) == 0) {
-//            divisors.insert(v);
-//        }
         div /= v;
     }
     if (div > 1) {
         divisors1.push_back(div);
     }
-    // cast divisor vector to set
     for (long & i : divisors1) {
         divisors.insert(i);
     }
-//    if (div > 1) {
-//        divisors.insert(div);
-//    }
     std::cout << pow(2, divisors.size()) << std::endl;
     return 0;
 }
