@@ -9,6 +9,7 @@ using namespace std;
 constexpr int kBase = 27;
 constexpr int kMod = 1e9 + 7;
 
+
 int calculate_shift(const string& word) {
     if (word.empty()) return 0;
 
