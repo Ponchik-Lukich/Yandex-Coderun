@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_set>
+
 using namespace std;
 
 int main() {
@@ -19,14 +20,13 @@ int main() {
         cube[i] = square[i] * a[i];
     }
 
-    unordered_set<long long> squareSet(a.begin(), a.end());
-    for (int i = 0; i < n; ++i) {
+    unordered_set<long long> Set(a.begin(), a.end());
+    for (int i = 0; i < n - 1; ++i) {
         for (int j = i + 1; j < n; ++j) {
             long long candidate_r3 = length - a[i] - a[j];
-            if (squareSet.find(candidate_r3) != squareSet.end()) {
+            if (Set.find(candidate_r3) != Set.end()) {
                 if (square[i] + square[j] + candidate_r3 * candidate_r3 == squareLength) {
-                    long long cubeSum = cube[i] + cube[j] + candidate_r3 * candidate_r3 * candidate_r3;
-                    if (cubeSum == cubeLength && a[i] != a[j] && a[j] != candidate_r3 && a[i] != candidate_r3) {
+                    if (cube[i] + cube[j] + candidate_r3 * candidate_r3 * candidate_r3 == cubeLength && candidate_r3 > 1) {
                         r1 = a[i];
                         r2 = a[j];
                         r3 = candidate_r3;
@@ -36,6 +36,7 @@ int main() {
             }
         }
     }
+
     cout << r1 << " " << r2 << " " << r3;
     return 0;
 }
