@@ -4,10 +4,14 @@
 using namespace std;
 
 int main() {
-    int n, x, y, z;
-    long long length, squareLength, cubeLength, r1, r2, r3;
+    int n;
+    long long length, squareLength, cubeLength, r1, r2, r3, x, y, z;
     cin >> n;
     cin >> x >> y >> z;
+    if (n == 3) {
+        cout << 1 << " " << 2 << " " << 3;
+        return 0;
+    }
     length = n * (n + 1) / 2 - x;
     squareLength = n * (n + 1) * (2 * n + 1) / 6 - y;
     cubeLength = n * (n + 1) * n * (n + 1) / 4 - z;

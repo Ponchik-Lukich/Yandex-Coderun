@@ -12,8 +12,7 @@ int main() {
     squareLength = n * (n + 1) * (2 * n + 1) / 6 - y;
     cubeLength = n * (n + 1) / 2 * (n * (n + 1) / 2) - z;
 
-    vector<long long> a(n), square(n);
-    vector<long long> cube(n);
+    vector<long long> a(n), square(n), cube(n);
     for (int i = 0; i < n; ++i) {
         a[i] = i + 1;
         square[i] = a[i] * a[i];
@@ -26,8 +25,8 @@ int main() {
             long long candidate_r3 = length - a[i] - a[j];
             if (squareSet.find(candidate_r3) != squareSet.end()) {
                 if (square[i] + square[j] + candidate_r3 * candidate_r3 == squareLength) {
-                    long long cubeSum = cube[i] + cube[j] + (long long) candidate_r3 * candidate_r3 * candidate_r3;
-                    if (cubeSum == cubeLength) {
+                    long long cubeSum = cube[i] + cube[j] + candidate_r3 * candidate_r3 * candidate_r3;
+                    if (cubeSum == cubeLength && a[i] != a[j] && a[j] != candidate_r3 && a[i] != candidate_r3) {
                         r1 = a[i];
                         r2 = a[j];
                         r3 = candidate_r3;
