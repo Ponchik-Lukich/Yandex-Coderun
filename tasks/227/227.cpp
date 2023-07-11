@@ -33,27 +33,12 @@ int main() {
     }
     a1 = 8 - d + 1;
     days = 8 - d;
-    long long last_positive_week = week;
-    long long last_positive_a1 = a1;
-    long long last_positive_days = days;
-
     while (week > 0) {
         days += 7;
         prev = week;
         week = week + 5 * k - (2 * a1 + 7) * 7 / 2;
         a1 += 7;
-
-        if (week > 0) {
-            last_positive_week = week;
-            last_positive_a1 = a1;
-            last_positive_days = days;
-        }
     }
-    cout << days << endl;
-    cout << a1 << endl;
-    cout << week << endl;
-    cout << "---" << endl;
-
     if (week == 0) {
         counter = 1;
         while (week == 0) {
